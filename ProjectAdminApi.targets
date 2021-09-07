@@ -1,0 +1,12 @@
+<Project>
+
+  <ItemGroup>
+    <Reference Include="Sepidar.AdminApi">
+      <HintPath>$(SepidarProjectsRoot)\Api\Assemblies\Sepidar.AdminApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  
+  <Import Project="$(SepidarProjectsRoot)\Api\ProjectBaseApi.targets" />
+  
+</Project>

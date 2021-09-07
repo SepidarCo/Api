@@ -3,3 +3,10 @@
 ################################################################################
 
 /Assemblies
+/AdminApi
+/SiteApi
+/Service
+/Database
+/DataAccess
+/CodeGenerator
+/Business
