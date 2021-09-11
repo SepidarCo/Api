@@ -1,0 +1,37 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Sepidar.Business;
+using Sepidar.Business.Interfaces;
+using Sepidar.Api.DataAccess.DbContexts;
+using Sepidar.BaseApi;
+using Sepidar.EntityFramework;
+
+namespace Sepidar.Service
+{
+    public class BaseStartup : GeneralStartup
+    {
+        public BaseStartup(IConfiguration configuration) : base(configuration)
+        {
+        }
+
+        protected override void RegisterDbContext(IServiceCollection services)
+        {
+            services.AddDbContextPool<AppDbContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("Api");
+                options.UseSqlServer(connectionString);
+            });
+        }
+        
+        protected override void RegisterRepositories(IServiceCollection services)
+        {
+            // InjectRepositories
+        }
+
+        protected override void RegisterBusinesses(IServiceCollection services)
+        {
+            // InjectBusinesses
+        }
+    }
+}
